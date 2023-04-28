@@ -1,27 +1,23 @@
-{% load mptt_tags %}
+{% load admin_urls %}
 
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>{{title}}</title>
-
+  <title></title>
 </head>
 <body>
-  <h1>{{test_data}}</h1>
-  <ul>
-    {% recursetree categories %}
-        <li>
-            <a href="{% url 'main' node.slug %}">
-                {{ node.name }}
-            </a>
-            {% if not node.is_leaf_node %}
-                <ul class="children">
-                  {{ children }}
-                </ul>
-            {% endif %}
-        </li>
-    {% endrecursetree %}
-</ul>
+  {% if menus %}
+    <div>
+    {% for menu in menus %}
+      <div style="margin-bottom: 10px;">
+      <a href="{% url 'menu_view' menu.slug %}"> {{ menu.title }} </a>
+      </div>
+    {% endfor %}
+    </div>
+  {% else %}
+    <div> Еще нет созданных меню перейдите в админку для создания </div>
+    <div><button><a href="admin/"> Перейти </a></button></div>
+  {% endif %}
 </body>
 </html>
