@@ -11,7 +11,7 @@
     <div>
     {% for menu in menus %}
       <div style="margin-bottom: 10px;">
-      <a href="{% url 'menu_view' menu.slug %}"> {{ menu.title }} </a>
+      <a href="{% url 'menu_view' menu.slug %}"> {{ menu.name }} </a>
       </div>
     {% endfor %}
     </div>

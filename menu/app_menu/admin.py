@@ -1,5 +1,5 @@
 from django.contrib import admin
-from app_menu.models import Menu, MenuCategory
+from app_menu.models import MenuCategory
 from mptt.admin import MPTTModelAdmin
 
 
@@ -7,8 +7,3 @@ from mptt.admin import MPTTModelAdmin
 class MenuCategoryAdmin(MPTTModelAdmin):
     list_display = ['name', 'slug']
     prepopulated_fields = {'slug': ('name',)}
-
-
-@admin.register(Menu)
-class MenuAdmin(admin.ModelAdmin):
-    list_display = ['title']

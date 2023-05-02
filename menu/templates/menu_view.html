@@ -11,7 +11,8 @@
     {% recursetree categories %}
         <li>
             {% if not node.is_leaf_node %}
-                <a href="{{ node.get_absolute_url }}">
+<!--                <a href="{{ node.get_absolute_url }}">-->
+                <a href="{% url 'sub_menu' node.slug %}">
                   {{ node.name }}
                 </a>
                 <ul class="children">
